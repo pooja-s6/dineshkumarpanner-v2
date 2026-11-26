@@ -5,28 +5,28 @@ const columnIcons = [GitPullRequest, Users, Layers];
 
 export function CoreCapabilities() {
   return (
-    <section id="about" className="border-b border-slate-200/80 bg-white py-16 sm:py-24">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+    <section id="about" className="border-b border-slate-200/80 bg-white py-14 sm:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-8">
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700">
             Core Focus & Capabilities
           </p>
-          <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             Structured ITIL® Governance Meets Agile Delivery
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-slate-600">
+          <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:mt-4 sm:text-base">
             Balancing risk containment, audit discipline, and high-trust Scrum execution across
             mission-critical banking and global IT operations.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:mt-12 sm:gap-6 lg:grid-cols-3">
           {CORE_CAPABILITIES.map((col, idx) => {
             const Icon = columnIcons[idx % columnIcons.length];
             return (
               <article
                 key={col.id}
-                className="flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-[#FAF9F6]/70 p-7 transition-colors hover:border-slate-300 hover:bg-white"
+                className="flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-[#FAF9F6]/70 p-5 transition-colors hover:border-slate-300 hover:bg-white sm:p-7"
               >
                 <div>
                   <div className="flex items-center justify-between gap-3">
@@ -38,16 +38,16 @@ export function CoreCapabilities() {
                     </span>
                   </div>
 
-                  <h3 className="mt-5 font-display text-xl font-bold text-slate-900">
+                  <h3 className="mt-4 font-display text-lg font-bold text-slate-900 sm:mt-5 sm:text-xl">
                     {col.title}
                   </h3>
 
-                  <p className="mt-2.5 text-sm leading-relaxed text-slate-600">
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600 sm:mt-2.5">
                     {col.summary}
                   </p>
                 </div>
 
-                <ul className="mt-6 space-y-2.5 border-t border-slate-200/80 pt-5">
+                <ul className="mt-5 space-y-2.5 border-t border-slate-200/80 pt-4 sm:mt-6 sm:pt-5">
                   {col.items.map((item) => (
                     <li
                       key={item}

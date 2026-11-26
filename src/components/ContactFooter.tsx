@@ -98,22 +98,22 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
 
   return (
     <>
-      <section id="contact" className="bg-white py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+      <section id="contact" className="bg-white py-14 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-8">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700">
               Contact
             </p>
-            <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Get in Touch
             </h2>
-            <p className="mt-3 text-base leading-relaxed text-slate-600">
+            <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
               Open to Release Management, Scrum Master, and ITIL® Service Governance leadership
               opportunities across Chennai, Bengaluru, and global delivery organizations.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-8 lg:grid-cols-12">
+          <div className="mt-10 grid gap-6 sm:mt-12 sm:gap-8 lg:grid-cols-12">
             {/* Direct Contact Channels */}
             <div className="space-y-3 lg:col-span-5">
               {channels.map((channel) => {
@@ -122,7 +122,7 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
                 return (
                   <div
                     key={channel.id}
-                    className="flex items-center justify-between gap-3 rounded-xl border border-slate-200/90 bg-[#FAF9F6]/70 p-4 transition-colors hover:border-slate-300 hover:bg-white"
+                    className="flex items-center justify-between gap-3 rounded-xl border border-slate-200/90 bg-[#FAF9F6]/70 p-3.5 transition-colors hover:border-slate-300 hover:bg-white sm:p-4"
                   >
                     <div className="flex min-w-0 items-center gap-3">
                       <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-emerald-700">
@@ -153,7 +153,7 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
                       type="button"
                       onClick={() => handleCopy(channel)}
                       aria-label={`Copy ${channel.label}`}
-                      className="inline-flex h-8 items-center gap-1 rounded-lg border border-slate-200 bg-white px-2.5 text-xs font-medium text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900"
+                      className="inline-flex h-9 flex-shrink-0 items-center gap-1 rounded-lg border border-slate-200 bg-white px-2.5 text-xs font-medium text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900"
                     >
                       {isCopied ? (
                         <>
@@ -173,9 +173,9 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
             </div>
 
             {/* Contact Form with Confirmation State */}
-            <div className="rounded-2xl border border-slate-200/90 bg-[#FAF9F6]/60 p-6 sm:p-8 lg:col-span-7">
+            <div className="rounded-2xl border border-slate-200/90 bg-[#FAF9F6]/60 p-5 sm:p-8 lg:col-span-7">
               {submittedName ? (
-                <div className="flex min-h-[300px] flex-col items-start justify-center">
+                <div className="flex min-h-[260px] flex-col items-start justify-center sm:min-h-[300px]">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700">
                     <CheckCircle2 className="h-6 w-6" />
                   </div>
@@ -196,7 +196,7 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
                   <button
                     type="button"
                     onClick={() => setSubmittedName(null)}
-                    className="mt-6 inline-flex items-center gap-1.5 rounded-xl border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-50"
+                    className="mt-6 inline-flex items-center gap-1.5 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-50"
                   >
                     <RotateCcw className="h-3.5 w-3.5" />
                     Send another message
@@ -279,10 +279,10 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
                     />
                   </div>
 
-                  <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+                  <div className="flex flex-col items-stretch gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between">
                     <button
                       type="submit"
-                      className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-700 sm:w-auto sm:py-2.5"
                     >
                       <Send className="h-4 w-4" />
                       Send Message
@@ -292,7 +292,7 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
                       href={`mailto:${PROFILE.email}?subject=${encodeURIComponent(
                         `Portfolio Inquiry${formState.organization ? ` — ${formState.organization}` : ''}`,
                       )}&body=${encodeURIComponent(formState.message)}`}
-                      className="text-xs font-medium text-slate-500 underline-offset-4 hover:text-emerald-700 hover:underline"
+                      className="text-center text-xs font-medium text-slate-500 underline-offset-4 hover:text-emerald-700 hover:underline sm:text-left"
                     >
                       Open in email app
                     </a>
@@ -305,7 +305,7 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
       </section>
 
       <footer className="border-t border-slate-200/80 bg-[#FAF9F6] py-8">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 text-xs text-slate-500 sm:flex-row sm:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-center text-xs text-slate-500 sm:flex-row sm:px-8 sm:text-left">
           <p className="font-medium text-slate-700">
             © {new Date().getFullYear()} {PROFILE.name} · Chennai, India
           </p>
