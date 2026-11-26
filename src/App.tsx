@@ -44,7 +44,7 @@ export function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-slate-900">
+    <div className="min-h-screen overflow-x-hidden bg-[#FAF9F6] text-slate-900">
       <Navbar
         activeSection={activeSection}
         onOpenResume={() => setIsResumeOpen(true)}

@@ -5,7 +5,7 @@ const columnIcons = [GitPullRequest, Users, Layers];
 
 export function CoreCapabilities() {
   return (
-    <section id="about" className="border-b border-slate-200/80 bg-white py-14 sm:py-24">
+    <section id="about" className="border-b border-slate-200/80 bg-white py-12 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-8">
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700">
@@ -20,34 +20,32 @@ export function CoreCapabilities() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-5 sm:mt-12 sm:gap-6 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-6 lg:grid-cols-3">
           {CORE_CAPABILITIES.map((col, idx) => {
             const Icon = columnIcons[idx % columnIcons.length];
             return (
               <article
                 key={col.id}
-                className="flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-[#FAF9F6]/70 p-5 transition-colors hover:border-slate-300 hover:bg-white sm:p-7"
+                className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-[#FAF9F6] p-5 shadow-sm transition-colors hover:border-slate-300 sm:p-7"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="text-xs font-semibold tracking-wider text-slate-400">
+                  <div className="flex items-center justify-between gap-3 border-b border-slate-200/80 pb-4">
+                    <span className="text-xs font-semibold tracking-wider text-slate-500">
                       {col.eyebrow}
                     </span>
-                    <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white text-emerald-700">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white text-emerald-700 shadow-sm">
                       <Icon className="h-4 w-4" />
                     </span>
                   </div>
 
-                  <h3 className="mt-4 font-display text-lg font-bold text-slate-900 sm:mt-5 sm:text-xl">
+                  <h3 className="mt-4 font-display text-lg font-bold text-slate-900 sm:text-xl">
                     {col.title}
                   </h3>
 
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600 sm:mt-2.5">
-                    {col.summary}
-                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{col.summary}</p>
                 </div>
 
-                <ul className="mt-5 space-y-2.5 border-t border-slate-200/80 pt-4 sm:mt-6 sm:pt-5">
+                <ul className="mt-5 space-y-2.5 rounded-xl border border-slate-200/80 bg-white p-4">
                   {col.items.map((item) => (
                     <li
                       key={item}

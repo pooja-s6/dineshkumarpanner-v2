@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import {
+  ArrowUp,
   Check,
   CheckCircle2,
   Copy,
@@ -98,7 +99,7 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
 
   return (
     <>
-      <section id="contact" className="bg-white py-14 sm:py-24">
+      <section id="contact" className="bg-white py-12 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-8">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700">
@@ -113,19 +114,19 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-6 sm:mt-12 sm:gap-8 lg:grid-cols-12">
-            {/* Direct Contact Channels */}
-            <div className="space-y-3 lg:col-span-5">
+          <div className="mt-8 grid gap-6 sm:mt-12 sm:gap-8 lg:grid-cols-12">
+            {/* Direct Contact Channel Boxes */}
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1">
               {channels.map((channel) => {
                 const Icon = channel.icon;
                 const isCopied = copiedId === channel.id;
                 return (
                   <div
                     key={channel.id}
-                    className="flex items-center justify-between gap-3 rounded-xl border border-slate-200/90 bg-[#FAF9F6]/70 p-3.5 transition-colors hover:border-slate-300 hover:bg-white sm:p-4"
+                    className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-[#FAF9F6] p-4 shadow-sm transition-colors hover:border-slate-300"
                   >
                     <div className="flex min-w-0 items-center gap-3">
-                      <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-emerald-700">
+                      <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white text-emerald-700">
                         <Icon className="h-4 w-4" />
                       </span>
                       <div className="min-w-0">
@@ -153,7 +154,7 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
                       type="button"
                       onClick={() => handleCopy(channel)}
                       aria-label={`Copy ${channel.label}`}
-                      className="inline-flex h-9 flex-shrink-0 items-center gap-1 rounded-lg border border-slate-200 bg-white px-2.5 text-xs font-medium text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900"
+                      className="inline-flex h-10 min-w-[44px] flex-shrink-0 items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 text-xs font-medium text-slate-700 transition-colors hover:border-slate-300 hover:text-slate-900 active:bg-slate-50"
                     >
                       {isCopied ? (
                         <>
@@ -172,8 +173,8 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
               })}
             </div>
 
-            {/* Contact Form with Confirmation State */}
-            <div className="rounded-2xl border border-slate-200/90 bg-[#FAF9F6]/60 p-5 sm:p-8 lg:col-span-7">
+            {/* Contact Form Box */}
+            <div className="rounded-2xl border border-slate-200 bg-[#FAF9F6] p-5 shadow-sm sm:p-8 lg:col-span-7">
               {submittedName ? (
                 <div className="flex min-h-[260px] flex-col items-start justify-center sm:min-h-[300px]">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700">
@@ -196,7 +197,7 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
                   <button
                     type="button"
                     onClick={() => setSubmittedName(null)}
-                    className="mt-6 inline-flex items-center gap-1.5 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-50"
+                    className="mt-6 inline-flex min-h-[42px] items-center gap-1.5 rounded-xl border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-50"
                   >
                     <RotateCcw className="h-3.5 w-3.5" />
                     Send another message
@@ -219,7 +220,7 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
                         value={formState.name}
                         onChange={(e) => setFormState((s) => ({ ...s, name: e.target.value }))}
                         placeholder="Your name"
-                        className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/15"
+                        className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-base text-slate-900 placeholder:text-slate-400 focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/15 sm:text-sm"
                       />
                     </div>
 
@@ -237,7 +238,7 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
                         value={formState.email}
                         onChange={(e) => setFormState((s) => ({ ...s, email: e.target.value }))}
                         placeholder="you@company.com"
-                        className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/15"
+                        className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-base text-slate-900 placeholder:text-slate-400 focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/15 sm:text-sm"
                       />
                     </div>
                   </div>
@@ -257,7 +258,7 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
                         setFormState((s) => ({ ...s, organization: e.target.value }))
                       }
                       placeholder="Optional — company or hiring role"
-                      className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/15"
+                      className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-base text-slate-900 placeholder:text-slate-400 focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/15 sm:text-sm"
                     />
                   </div>
 
@@ -275,14 +276,14 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
                       value={formState.message}
                       onChange={(e) => setFormState((s) => ({ ...s, message: e.target.value }))}
                       placeholder="Share opportunity details, location, or collaboration scope..."
-                      className="w-full resize-none rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/15"
+                      className="w-full resize-none rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-base text-slate-900 placeholder:text-slate-400 focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/15 sm:text-sm"
                     />
                   </div>
 
                   <div className="flex flex-col items-stretch gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between">
                     <button
                       type="submit"
-                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-700 sm:w-auto sm:py-2.5"
+                      className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700 sm:w-auto"
                     >
                       <Send className="h-4 w-4" />
                       Send Message
@@ -292,7 +293,7 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
                       href={`mailto:${PROFILE.email}?subject=${encodeURIComponent(
                         `Portfolio Inquiry${formState.organization ? ` — ${formState.organization}` : ''}`,
                       )}&body=${encodeURIComponent(formState.message)}`}
-                      className="text-center text-xs font-medium text-slate-500 underline-offset-4 hover:text-emerald-700 hover:underline sm:text-left"
+                      className="py-1 text-center text-xs font-medium text-slate-500 underline-offset-4 hover:text-emerald-700 hover:underline sm:text-left"
                     >
                       Open in email app
                     </a>
@@ -310,7 +311,7 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
             © {new Date().getFullYear()} {PROFILE.name} · Chennai, India
           </p>
 
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-5">
             <button
               type="button"
               onClick={onOpenResume}
@@ -328,6 +329,14 @@ export function ContactFooter({ onNotify, onOpenResume }: ContactFooterProps) {
               <Linkedin className="h-3.5 w-3.5" />
               LinkedIn
             </a>
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="inline-flex items-center gap-1 font-medium text-slate-600 transition-colors hover:text-emerald-700"
+            >
+              <ArrowUp className="h-3.5 w-3.5" />
+              Top
+            </button>
           </div>
         </div>
       </footer>

@@ -2,9 +2,9 @@ import { GOVERNANCE_PRACTICES } from '../data/portfolioData';
 
 export function GovernanceSection() {
   return (
-    <section id="governance" className="border-b border-slate-200/80 bg-[#FAF9F6] py-14 sm:py-24">
+    <section id="governance" className="border-b border-slate-200/80 bg-[#FAF9F6] py-12 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-8">
-        <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div className="flex flex-col justify-between gap-3 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700">
               Governance Practice
@@ -19,30 +19,32 @@ export function GovernanceSection() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-5 sm:mt-12 sm:gap-6 md:grid-cols-2">
+        <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-6 md:grid-cols-2">
           {GOVERNANCE_PRACTICES.map((practice) => (
             <div
               key={practice.step}
-              className="rounded-2xl border border-slate-200/90 bg-white p-5 transition-colors hover:border-slate-300 sm:p-7"
+              className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-colors hover:border-slate-300 sm:p-7"
             >
-              <div className="flex items-baseline gap-3">
-                <span className="font-display text-sm font-bold text-emerald-700">
-                  {practice.step}
-                </span>
-                <h3 className="font-display text-base font-bold text-slate-900 sm:text-lg">
-                  {practice.title}
-                </h3>
+              <div>
+                <div className="flex items-center gap-3">
+                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-emerald-50 font-display text-xs font-bold text-emerald-700">
+                    {practice.step}
+                  </span>
+                  <h3 className="font-display text-base font-bold text-slate-900 sm:text-lg">
+                    {practice.title}
+                  </h3>
+                </div>
+
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  {practice.description}
+                </p>
               </div>
 
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 sm:mt-3">
-                {practice.description}
-              </p>
-
-              <div className="mt-4 flex flex-wrap gap-2 sm:mt-5">
+              <div className="mt-5 flex flex-wrap gap-2 border-t border-slate-100 pt-4">
                 {practice.toolsOrArtifacts.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-md border border-slate-200/80 bg-[#FAF9F6] px-2.5 py-1 text-xs font-medium text-slate-700"
+                    className="rounded-lg border border-slate-200/80 bg-[#FAF9F6] px-2.5 py-1 text-xs font-medium text-slate-700"
                   >
                     {tag}
                   </span>
